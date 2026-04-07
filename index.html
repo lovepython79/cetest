@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoreELEC-IL Repo Index</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background: radial-gradient(circle at center, #1a2a3a 0%, #0a0e14 100%);
+            color: #f1f5f9;
+            font-family: system-ui, -apple-system, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(25, 25, 25, 0.95);
+            padding: 40px;
+            border-radius: 30px;
+            border: 2px solid #00bcd4;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+            text-align: center;
+        }
+        .logo { 
+            width: 100%; 
+            max-width: 280px;
+            height: auto; 
+            margin-bottom: 25px; 
+            border-radius: 15px;
+        }
+        h1 {
+            color: #00bcd4;
+            font-size: 28px;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        p {
+            color: #eee;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+        }
+        .file-link {
+            display: inline-block;
+            background: #00bcd4;
+            color: #000 !important;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        .file-link:hover {
+            transform: scale(1.05);
+            background: #00acc1;
+        }
+        .source-box {
+            background: #000;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid #333;
+            margin-top: 20px;
+        }
+        .url-text {
+            display: block;
+            color: #00bcd4;
+            font-family: monospace;
+            margin-bottom: 15px;
+            direction: ltr;
+            font-size: 14px;
+        }
+        #copy-btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #00bcd4;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        #copy-btn.active {
+            background: #00bcd4;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="images/icon.png" alt="CoreELEC-IL Logo" class="logo">
+        
+        <h1>CoreELEC-IL</h1>
+        
+        
+        <ul>
+            <li>
+                <a href="repository.testce-1.0.0.zip" class="file-link">testce-1.0.0.zip</a>
+            </li>
+        </ul>
+        <p dir="rtl">  או הוסף מקור: ב מנהל קבצים- (File manager)</p>
+        <div class="source-box">
+            <span class="url-text" id="url">https://lovepython79.github.io/cetest/</span>
+            <button id="copy-btn" onclick="copy()">העתק כתובת מקור</button>
+        </div>
+    </div>
+
+    <script>
+        function copy() {
+            const t = document.getElementById('url').innerText;
+            const b = document.getElementById('copy-btn');
+            const i = document.createElement("input");
+            document.body.appendChild(i);
+            i.value = t; i.select();
+            document.execCommand("copy");
+            document.body.removeChild(i);
+            b.innerText = "הועתק! ✓";
+            b.classList.add("active");
+            setTimeout(() => { 
+                b.innerText = "העתק כתובת מקור"; 
+                b.classList.remove("active"); 
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
